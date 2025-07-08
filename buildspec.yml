@@ -24,7 +24,6 @@
 #       - echo "Deployment complete!!"
 
 version: 0.2
-
 phases:
   install:
     runtime-versions:
@@ -34,7 +33,6 @@ phases:
       - pip install --upgrade pip
       - pip install --only-binary=:all: -r requirements.txt -t lib
       - echo "END: Dependencies installed."
-
   build:
     commands:
       - echo "Zipping deployment package..."
@@ -42,7 +40,6 @@ phases:
       - zip -r9 ../deployment_package.zip .
       - cd ..
       - zip -g deployment_package.zip lambda_function.py
-
   post_build:
     commands:
       - ls -lh
