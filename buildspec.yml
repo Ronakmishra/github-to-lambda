@@ -4,8 +4,12 @@ phases:
     runtime-versions:
       python: 3.11
     commands:
-      - echo "Installing dependencies..."
-      - pip install -r requirements.txt -t lib
+      # - echo "Installing dependencies..."
+      # - pip install -r requirements.txt -t lib
+      - echo "START: Installing dependencies (binary only)..."
+      - pip install --upgrade pip
+      - pip install --only-binary=:all: -r requirements.txt -t lib
+      - echo "END: Dependencies installed."
   build:
     commands:
       - echo "Zipping deployment package..."
